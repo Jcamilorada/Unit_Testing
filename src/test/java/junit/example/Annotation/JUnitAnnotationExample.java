@@ -1,4 +1,4 @@
-package examples.Annotations;
+package junit.example.Annotation;
 
 /**
  * Created by jolaya on 2/19/2015.

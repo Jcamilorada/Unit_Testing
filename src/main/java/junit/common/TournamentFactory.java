@@ -1,28 +1,74 @@
 package junit.common;
 
-import junit.common.Tournaments.NationalFootballLeague;
-import junit.common.Tournaments.SoccerWorldCup;
-import junit.common.Tournaments.UsaBaseballLeague;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
- * Created by jolaya on 2/19/2015.
+ * Created by jolaya on 2/20/2015.
  */
 public class TournamentFactory {
+    
+    public Tournament getTournament(String tournament){
+        
+        Tournament createdTournament = new Tournament() {
+            @Override
+            public String getSport() {
+                return null;
+            }
 
-    private List<Tournament> tournaments = new ArrayList<Tournament>();
-    private TeamFactory teamFactory = new TeamFactory();
+            @Override
+            public String getName() {
+                return null;
+            }
 
-    public TournamentFactory(){
-        tournaments.add(new UsaBaseballLeague("baseball", "USA Baseball League", 20, 2008, new ArrayList<Team>(){{add(teamFactory.getTeams().get(1)); add(teamFactory.getTeams().get(5)); add(teamFactory.getTeams().get(7));}}, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<Integer>()));
-        tournaments.add(new SoccerWorldCup("soccer", "Soccer World Cup", 500, 1998, new ArrayList<Team>(){{add(teamFactory.getTeams().get(0)); add(teamFactory.getTeams().get(4)); add(teamFactory.getTeams().get(6));}}, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<Integer>()));
-        tournaments.add(new NationalFootballLeague("football", "National Football League", 400, 2015, new ArrayList<Team>(){{add(teamFactory.getTeams().get(2)); add(teamFactory.getTeams().get(3));}}, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<Integer>()));
-    }
+            @Override
+            public int getQuantityOfStaff() {
+                return 0;
+            }
 
-    public List<Tournament> getTournaments(){
-        return tournaments;
+            @Override
+            public List<String> getTeams() {
+                return null;
+            }
+
+            @Override
+            public List<String> getFinalMatch() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> getScoreBoard() {
+                return null;
+            }
+
+            @Override
+            public int getYear() {
+                return 0;
+            }
+        };
+        
+        switch (tournament.toLowerCase()){
+            case "afl": 
+                createdTournament = AFL.getInstance();
+                break;
+            case "asbl":
+                createdTournament = ASBL.getInstance();
+                break;
+            case "fifafwc":
+                createdTournament = FIFAFWC.getInstance();
+                break;
+            case "fifawc":
+                createdTournament = FIFAWC.getInstance();
+                break;
+            case "nba":
+                createdTournament = NBA.getInstance();
+                break;
+            case "nfl":
+                createdTournament = NFL.getInstance();
+                break;
+            default:
+                System.out.println();
+        }
+        
+        return createdTournament;
     }
 }
