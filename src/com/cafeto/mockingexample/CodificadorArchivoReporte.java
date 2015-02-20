@@ -6,5 +6,5 @@ public interface CodificadorArchivoReporte {
 
 	public File generarReporteXML(Reporte report);
 	public File generarReporteExcel(Reporte report);
-	public File generarReporteJson(Reporte reporte);
+	public File generarReporteJson(Reporte report);
 }
