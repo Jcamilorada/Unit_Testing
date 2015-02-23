@@ -1,4 +1,4 @@
-package junit.common;
+package com.cafeto.junit.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;

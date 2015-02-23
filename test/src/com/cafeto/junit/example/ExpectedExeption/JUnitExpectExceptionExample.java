@@ -1,8 +1,5 @@
-package junit.example.ExpectedExeption;
+package com.cafeto.junit.example.ExpectedExeption;
 
-import junit.common.ASBL;
-import junit.common.NBA;
-import junit.common.Tournament;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package junit.example.Assertion;
+package com.cafeto.junit.example.Assertion;
 
-import junit.common.ITournament;
-import junit.common.TournamentFactory;
+import com.cafeto.junit.common.ITournament;
+import com.cafeto.junit.common.TournamentFactory;
 
 import java.util.ArrayList;
 
