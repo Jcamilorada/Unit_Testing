@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 //Factory interface Tournament. Tournaments are all "done" at the moment of creation.
-public interface Tournament{
+public interface ITournament {
 
 
     //Getter and Setter for the type sport played in the tournament. Their can only be 3 tournament types. Data type is String.
