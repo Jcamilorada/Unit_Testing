@@ -1,4 +1,4 @@
-package junit.example.Annotation;
+package com.cafeto.junit.example.Annotation;
 
 /**
  * Created by jolaya on 2/19/2015.

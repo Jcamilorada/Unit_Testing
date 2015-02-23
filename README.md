@@ -1,7 +1,7 @@
 # Unit Testing With Mockito and Junit
 
 
-The main idea of this project is to provides examples to learn about junit and mockito features and their role in continuous integrations. 
+The main idea of this project is to provide examples to learn about junit and mockito features and their role in continuous integrations.
 
 
 #JUnit and its roll in Continuous Integration
@@ -63,3 +63,6 @@ simplify and organize the testing of code. Thus the creation of JUnit come to li
 
 The next diagram explains how this idea works in a continuous integration environment and where unit testing occurs:
 
+![alt](https://github.com/Jcamilorada/Unit_Testing/tree/master/img/CI&JUnitDiagram.png)
+
+[dzoneLink]: http://www.dzone.com/research/2015-guide-to-continuous-delivery
