@@ -1,8 +1,6 @@
-package com.cafeto.mockingtest;
+package mockingtest;
 
-import java.io.File;
-import java.io.IOException;
-
+import com.cafeto.mockingexample.Report;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.theories.DataPoint;
@@ -11,25 +9,24 @@ import org.junit.experimental.theories.Theory;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import java.io.File;
+import java.io.IOException;
 
-import com.cafeto.mockingexample.Reporte;
+import static org.junit.Assert.assertNotEquals;
 
 @RunWith(Theories.class)
 public class RulesNTheoriesJUnit {
 	
 	@DataPoint
-	public static Reporte rep1 = new Reporte("Prueba1", "sin datos");
+	public static Report rep1 = new Report("Prueba1", "sin datos");
 	@DataPoint
-	public static Reporte rep2 = new Reporte("Prueba2", "con datos");
+	public static Report rep2 = new Report("Prueba2", "con datos");
 	
-	// the test will be applied to every @DataPoint defined, and it must pass for all of them
 	@Theory
-	public void theoriesTest(Reporte report) {
+	public void theoriesTest(Report report) {
 		assertNotEquals(report.getInformacion(), null);
 	}
-	
-	// the annotated field as @Rule will
+
 	@Rule
     public TemporaryFolder folder= new TemporaryFolder();
 	
