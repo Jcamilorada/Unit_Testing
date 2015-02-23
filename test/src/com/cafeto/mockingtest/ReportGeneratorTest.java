@@ -1,11 +1,9 @@
-package mockingtest;
+package com.cafeto.mockingtest;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 import com.cafeto.mockingexample.IReportFileEncoder;
-import com.cafeto.mockingexample.ReportFileEncoder;
 import com.cafeto.mockingexample.ReportGenerator;
 import com.cafeto.mockingexample.Report;
 
@@ -15,8 +13,7 @@ import static org.mockito.Mockito.*;
 public class ReportGeneratorTest {
 	
 	private Report reporte;
-	
-	@Before
+
 	public void init() {
 		reporte = new Report("Titulo", "contenido del reporte");
 	}
