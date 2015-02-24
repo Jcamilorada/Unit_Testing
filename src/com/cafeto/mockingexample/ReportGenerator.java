@@ -9,15 +9,19 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public class ReportGenerator {
 	
-	@Getter @Setter private Report reporte;
+	@Getter
+    @Setter
+    private Report reporte;
+    
 	private IReportFileEncoder codificador;
 	
 	public ReportGenerator(IReportFileEncoder codificador) {
-		this.codificador = checkNotNull(codificador);
+        checkNotNull(codificador);
+        this.codificador = codificador;
 	}
 
 	private void guardarArchivo(File archivo) {
-		checkNotNull(archivo);
+		//checkNotNull(archivo);
 	}
 	
 	public void guardarExcel(Report reporte) {

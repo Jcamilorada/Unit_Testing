@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ReportGeneratorTest {
@@ -62,16 +62,17 @@ public class ReportGeneratorTest {
 	@Test
 	public void guardarReporteExcel() {
         ReportGenerator generador;
-        IReportFileEncoder codificador;
+        ReportFileEncoder codificador = new ReportFileEncoder();
+        ReportFileEncoder espia;
 
-        codificador = mock(IReportFileEncoder.class);
-        generador = new ReportGenerator(codificador);
+        espia = spy(codificador);
+        generador = new ReportGenerator(espia);
 
 		generador.guardarExcel(reporte);
 
-		verify(codificador, times(0)).generarReporteJson(reporte);
-		verify(codificador, never()).generarReporteXML(reporte);
-		verify(codificador).generarReporteExcel(reporte);
+		verify(espia, times(0)).generarReporteJson(reporte);
+		verify(espia, never()).generarReporteXML(reporte);
+		verify(espia).generarReporteExcel(reporte);
 	}
 
     /**
@@ -81,9 +82,9 @@ public class ReportGeneratorTest {
 	@Test
 	public void argumentCaptorsTest() {
         ReportGenerator generador;
-        IReportFileEncoder codificador;
+        ReportFileEncoder codificador;
 
-		codificador = mock(IReportFileEncoder.class);
+		codificador = mock(ReportFileEncoder.class);
 
 		ArgumentCaptor<Report> captor = ArgumentCaptor.forClass(Report.class);
 
