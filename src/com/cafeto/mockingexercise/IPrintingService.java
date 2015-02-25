@@ -1,9 +1,11 @@
 package com.cafeto.mockingexercise;
 
 /**
- * Created by oidarraga on 24/02/2015.
+ * This interface shows the required methods that should be implemented to serve de invoice printing service.
+ * @author Oliver Idárraga
  */
-public interface IPrintingService {
+public interface IPrintingService
+{
     /**
      * Includes a new invoice in the printing queue.* 
      * @param invoice the invoice to be queue.
@@ -15,5 +17,5 @@ public interface IPrintingService {
      * Removes the invoice identified by the id if it in the queue*
      * @param id id of the invoice.
      */
-    public void cancel(int id);
+    public boolean cancel(int id);
 }

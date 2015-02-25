@@ -10,6 +10,9 @@ las operaciones en la base de datos.
 
 Las pruebas que se tiene que realizar sobre la clase que genera las facturas son: 
 
+* Se construye el objeto con el servicio de impresión nulo.
+* Se construye el objeto con el acceso a datos nulo.
+* Se construye el objeto correctamente.
 * La factura generada es enviada efectivamente al servidor de impresión una sola vez.
 * La factura enviada al servidor de impresión es la correcta.
-* 
+* Se envía una solicitud de cancelación de impresión.

@@ -1,100 +1,104 @@
 package com.cafeto.mockingexample;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
-
+/**
+ * Unit tests for {@code ReportGenerator}.
+ * 
+ * @author Oliver
+ */
 public class ReportGeneratorTest {
 	
-	private Report reporte;
+    /*
+    Siempre testear el constructor.
+    Testear cada parametro cuando sea nulo individualmente
+    nomenclatura de metodos: test+metodo+casoDePrueba
+    testear que se lancen las excepciones
+    un test por cada excepcion
+    
+     */
+    
+	private Report report;
+    private ReportGenerator unitInTesting; //testInstance
+    IReportFileEncoder encoder; //mockReportFileEncoder
 
     @Before
-	public void init() {
-		reporte = new Report("Titulo", "contenido del reporte");
+	public void init()
+    {
+		report = new Report("Title", "report content");
 	}
+    
+    public void testConstructorWithNullEncoder()
+    {
+        
+    }
 
-    /**
-     * This test is made for testing the correct method is being called at least once an the other methods are never
-     * called. Verifications are made using linguistic named methods.
-     */
+    @Test
+    public void testSaveJsonWithNullReport()
+    {
+        
+    }
+    
 	@Test
-	public void guardarReporteJsonTest() {
-		ReportGenerator generador;
-		IReportFileEncoder codificador;
+	public void testSaveJson()
+    {
 		
-		codificador = mock(IReportFileEncoder.class);
+		encoder = mock(IReportFileEncoder.class);
 
-		generador = new ReportGenerator(codificador);
+		unitInTesting = new ReportGenerator(encoder);
 		
-		generador.guardarJson(reporte);
+		unitInTesting.saveJson(report);
 
-		verify(codificador, atLeastOnce()).generarReporteJson(reporte);
-		verify(codificador, never()).generarReporteXML(reporte);
-		verify(codificador, never()).generarReporteExcel(reporte);
+		verify(encoder, atLeastOnce()).generateReportJson(report);
+		verify(encoder, never()).generateReportXML(report);
+		verify(encoder, never()).generateReportExcel(report);
+	}
+    
+	@Test
+	public void testTheReportIsSavedInXmlFormat() {
+
+        encoder = mock(IReportFileEncoder.class);
+        unitInTesting = new ReportGenerator(encoder);
+
+		unitInTesting.saveXML(report);
+
+		verify(encoder, never()).generateReportJson(report);
+		verify(encoder, atLeastOnce()).generateReportXML(report);
+		verify(encoder, never()).generateReportExcel(report);
 	}
 
-    /**
-     * This test is made for testing the correct method is being called at least once an the other methods are never
-     * called. Verifications are made using linguistic named methods.
-     */
 	@Test
-	public void guardarReporteXMLTest() {
-        ReportGenerator generador;
-        IReportFileEncoder codificador;
+	public void testTheReportIsSavedInExcelFormat() {
+        ReportFileEncoder encoder1 = new ReportFileEncoder();
+        ReportFileEncoder spied;
 
-        codificador = mock(IReportFileEncoder.class);
-        generador = new ReportGenerator(codificador);
+        spied = spy(encoder1);
+        unitInTesting = new ReportGenerator(spied);
 
-		generador.guardarXML(reporte);
+		unitInTesting.saveExcel(report);
 
-		verify(codificador, never()).generarReporteJson(reporte);
-		verify(codificador, atLeastOnce()).generarReporteXML(reporte);
-		verify(codificador, never()).generarReporteExcel(reporte);
+		verify(spied, times(0)).generateReportJson(report);
+		verify(spied, never()).generateReportXML(report);
+		verify(spied).generateReportExcel(report);
 	}
 
-    /**
-     * This test is made for testing the correct method is being called an exact number of times
-     * Verifications are made using exact number of times and using different ways to do the same verification.
-     */
 	@Test
-	public void guardarReporteExcel() {
-        ReportGenerator generador;
-        ReportFileEncoder codificador = new ReportFileEncoder();
-        ReportFileEncoder espia;
-
-        espia = spy(codificador);
-        generador = new ReportGenerator(espia);
-
-		generador.guardarExcel(reporte);
-
-		verify(espia, times(0)).generarReporteJson(reporte);
-		verify(espia, never()).generarReporteXML(reporte);
-		verify(espia).generarReporteExcel(reporte);
-	}
-
-    /**
-     * This test is made for verifying the methods are being called using the appropriate arguments.
-     * and then making some assertions on the objects passed to the method we're testing.
-     */
-	@Test
-	public void argumentCaptorsTest() {
-        ReportGenerator generador;
-        ReportFileEncoder codificador;
-
-		codificador = mock(ReportFileEncoder.class);
+	public void testTheRightFileIsSaved() {
+		encoder = mock(ReportFileEncoder.class);
 
 		ArgumentCaptor<Report> captor = ArgumentCaptor.forClass(Report.class);
 
-		generador = new ReportGenerator(codificador);
+		unitInTesting = new ReportGenerator(encoder);
 
-		generador.guardarExcel(reporte);
+		unitInTesting.saveExcel(report);
 
-		verify(codificador).generarReporteExcel(captor.capture());
-		assertEquals("Titulo", captor.getValue().getTitulo());
-//		assertNotEquals("Titulo", captor.getValue().getTitulo());
-	}
+        verify(encoder).generateReportExcel(captor.capture());
+        assertEquals("Title", captor.getValue().getTitle());
+    }
 
 }
