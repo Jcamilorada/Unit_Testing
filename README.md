@@ -63,6 +63,6 @@ simplify and organize the testing of code. Thus the creation of JUnit come to li
 
 The next diagram explains how this idea works in a continuous integration environment and where unit testing occurs:
 
-![alt](https://github.com/Jcamilorada/Unit_Testing/tree/master/img/CI&JUnitDiagram.png)
+![click here](https://github.com/Jcamilorada/Unit_Testing/tree/master/img/CI&JUnitDiagram.png)
 
 [dzoneLink]: http://www.dzone.com/research/2015-guide-to-continuous-delivery

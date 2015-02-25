@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by jolaya on 2/23/2015.
  */
-public abstract class AbstractTournament implements com.cafeto.junit.common.ITournament {
+public abstract class AbstractTournament implements ITournament {
 
     protected String sport, name;
     protected int quantityOfStaff, year;

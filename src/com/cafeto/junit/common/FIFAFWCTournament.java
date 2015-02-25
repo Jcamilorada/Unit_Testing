@@ -1,17 +1,11 @@
 package com.cafeto.junit.common;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by jolaya on 2/20/2015.
  */
 public class FIFAFWCTournament extends AbstractTournament {
-    /*String sport, name;
-    int quantityOfStaff, year;
-    List<String> teams, finalMatch;
-    List<Integer> scoreBoard;*/
 
     FIFAFWCTournament() {
         sport = "soccer";

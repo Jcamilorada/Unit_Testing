@@ -111,7 +111,7 @@ Now to answer these lets look at what is expected of each.
 
 ###ExpectedException
 
-As simple at it may look this it is powerful tool to prove the exceptions created in your code. Here is an example:
+As simple at it may look this it is powerful tool to prove exceptions to the normal execution of the code. Here is an example:
 
 ```java
 //You can find this example at http://www.asjava.com/junit/junit-3-vs-junit-4-comparison/
@@ -123,6 +123,28 @@ public class JUnitExpectExceptionExample {
     }
 }
 ```
+
+##Exercise
+The analyst have come to like the features currently implemented (those in the example). But they have gathered a couple of new inquiries
+which are:
+
+1. Implement and validate a function that retrieves the sports registered in the system. Check that there are just these 
+three types of sports: football, basketball and soccer.
+2. Implement and validate a function that returns the winner of a tournament given the name of the tournament that should belong
+to one matching the current available tournaments which are: {"afl", "asbl", "fifafwc", "fifawc", "nba", "nfl"}.
+3. Validate that no tournament "mlb" hasn't been yet registered in the system (if it's not registered it has no winner, right?).
+4. Implement and validate a function that retrieves all the winners of a given sport. Validate for each sport so that: winners in football
+were {"pros fl", "patriots"}, winners in soccer were {"colombia", "germany"} and winners in basketball were {"west", "heats"}.
+5. Implement and validate a function that retrieves all the winners of the system. Validate that the answer is an array containing
+all the winners of each sport. Thus expect {{"pros fl", "patriots"}, {"colombia", "germany"}, {"west", "heats"}}.
+6. Validate there is no more than the expect winners int the system. Thus if a 4th set of winners there should be no index available.
+
+Finally the analyst want to revise the process of validation and understand when the test class is starting and ending. 
+Also they want to know when a specific test starts and ends, thus they want to know the time it starts, the time it ends 
+and calculate the duration the test takes.
+
+The exercise will consist of two aspects. First, the implementation of a class to responds to th requirements of the analyst group.
+Second, the implementation of unit tests to validate the implemented methods.
 
 [apiAssert]: http://junit.sourceforge.net/javadoc/org/junit/Assert.html
 [detailedAssert]: http://www.vogella.com/tutorials/JUnit/article.html#usingjunit_asserts
