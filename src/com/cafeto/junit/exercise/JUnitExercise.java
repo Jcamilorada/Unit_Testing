@@ -127,11 +127,35 @@ public class JUnitExercise {
         
     }
 
+    /**
+     * Method that extracts the sports in the system without repetitions*
+     * @return array of sports in system without repetition
+     */
+
     public String[] getArrayOfSports(){
         Set<String> setOfSports = new HashSet();
         for (String  tournament: allTournaments){
             setOfSports.add(tournamentFactory.getTournament(tournament).get().getSport());
         }
         return setToStringArray(setOfSports);
+    }
+
+    /**
+     * This method checks if the teams on the final match were registered in the teams of the competition for a particular *
+     * tournament.*
+     * @param tournament string tournament to process the verification.
+     * @return boolean answer that indicates if the teams in the final match are registered or not.
+     */
+    
+    public boolean checkForRegisteredTeamsInFinalsForTournament(String tournament){
+        ITournament aTournament = tournamentFactory.getTournament(tournament).get();
+        
+        if (aTournament.getTeams().contains(aTournament.getFinalMatch().get(0)))
+        {
+            if (aTournament.getTeams().contains(aTournament.getFinalMatch().get(1))){
+                return true;
+            }
+        }
+        return false;
     }
 }

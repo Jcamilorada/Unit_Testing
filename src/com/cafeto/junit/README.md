@@ -83,7 +83,7 @@ private ArrayList<String> list;
 }
 ```
 
-To revise your answer check out the junit.example.annotation package under test followed by java directories and execute JUnitAnnotationExample.
+To revise your answer check out the com.cafeto.junit.example.annotation package under test followed by src directories and execute JUnitAnnotationExample.
 ###Assertion
 
 Let us develop this idea by answering some of the simplest questions of the analyst group. Like the following ones:
@@ -108,6 +108,9 @@ Now to answer these lets look at what is expected of each.
    In the following example we want to compare to arrays containing Tournament Objects. We will use the function ***getTournamentOfGivenSport*** which return the tournaments,
    that host a specific sport. We know before hand that the tournaments currently registered are {"afl", "asbl", "fifafwc", "fifawc", "nba", "nfl"} and we know that
    their are 3 available sports soccer, basketball and football. For basketball we expect to receive find an array with nba and asbl tournaments.
+   
+To revise te implementation check out the com.cafeto.junit.example.assertion package under src directory to find the AssertionExample.java file, and for JUnit tests
+check out the junit.example.assertion package under test followed by src directories and execute TestAssertionExample.
 
 ###ExpectedException
 
@@ -116,7 +119,7 @@ As simple at it may look this it is powerful tool to prove exceptions to the nor
 ```java
 //You can find this example at http://www.asjava.com/junit/junit-3-vs-junit-4-comparison/
 public class JUnitExpectExceptionExample {
-    //Since JUnit 4 al expectedexcpetion test cases use the following notation
+    //Since JUnit 4 all expectedexcpetion test cases use the following notation
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetElement() {
         (new ArrayList()).get(0);
@@ -138,6 +141,7 @@ were {"pros fl", "patriots"}, winners in soccer were {"colombia", "germany"} and
 5. Implement and validate a function that retrieves all the winners of the system. Validate that the answer is an array containing
 all the winners of each sport. Thus expect {{"pros fl", "patriots"}, {"colombia", "germany"}, {"west", "heats"}}.
 6. Validate there is no more than the expect winners int the system. Thus if a 4th set of winners there should be no index available.
+7. Implement and validate a method to check if the teams who played the finals were registered in the provided teams list.
 
 Finally the analyst want to revise the process of validation and understand when the test class is starting and ending. 
 Also they want to know when a specific test starts and ends, thus they want to know the time it starts, the time it ends 

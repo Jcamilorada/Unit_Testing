@@ -96,4 +96,19 @@ public class AssertionExample {
         }
         return arrayOfTournamentOfSameSport;
     }
+
+    /**
+     * Calculates the sum of the quantities of staff of each tournament to find what is the total amount in the whole system. *
+     * @param arrayOfTournaments array of strings containing a full a diminutive of all the registered tournaments
+     * @return sum of the quantity of staff from each registered tournament.
+     */
+    
+    public int sumAmountOfStaffUsedInSystem(String[] arrayOfTournaments){
+        int sumOfStaff = 0;
+        for(String tournament: arrayOfTournaments){
+            sumOfStaff += tournamentFactory.getTournament(tournament).get().getQuantityOfStaff();
+        }
+        
+        return sumOfStaff;
+    } 
 }

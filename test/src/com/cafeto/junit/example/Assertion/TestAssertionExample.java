@@ -60,4 +60,16 @@ public class TestAssertionExample {
 
     }
 
+    /**
+     * Tests the method sumAmountOfStaffUsedInSystem from the AssertionExample class. It checks the correct functionality of the method by proving *
+     * that the retrieved value corresponds to summed amount of all the staff members for each tournament. *
+     */
+    
+    @Test
+    public void testSumAmountOfStaffUsedInSystem(){
+        String[] listOfTournaments = {"afl", "asbl", "fifafwc", "fifawc", "nba", "nfl"};
+        assertEquals(assertionExample.sumAmountOfStaffUsedInSystem(listOfTournaments), 4550);
+        
+    }
+
 }

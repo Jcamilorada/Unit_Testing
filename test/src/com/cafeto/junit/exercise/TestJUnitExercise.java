@@ -169,4 +169,17 @@ public class TestJUnitExercise {
 
         System.out.println("Test for get array of registered sports.");
     }
+
+    /**
+     * Test the method checkForRegisteredTeamsInFinalsForTournament from the JUnitExercise class should retrieve the correct value. *
+     * In this test we assure that the teams who played the final match for the competition nfl were correctly registered in the teams *
+     * for the tournament.*
+     */
+    
+    @Test
+    public void testCheckForRegisteredTeamsInFinalsForTournament(){
+        assertTrue(jUnitExercise.checkForRegisteredTeamsInFinalsForTournament("nfl"));
+        
+        System.out.println("Test to check if teams are registered for final match ");
+    }
 }
