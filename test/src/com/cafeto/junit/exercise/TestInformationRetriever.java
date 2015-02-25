@@ -7,8 +7,8 @@ import org.junit.*;
 /**
  * Created by jolaya on 2/24/2015.
  */
-public class TestJUnitExercise {
-    static JUnitExercise jUnitExercise;
+public class TestInformationRetriever {
+    static InformationRetriever informationRetriever;
     long startTime, endTime, duration;
 
     /**
@@ -17,8 +17,9 @@ public class TestJUnitExercise {
      */
     
     @BeforeClass
-    public static void initialize(){
-        jUnitExercise = new JUnitExercise();
+    public static void initialize()
+    {
+        informationRetriever = new InformationRetriever();
         System.out.println("JUnitExercise was initialized in @BeforeClass");
     }
 
@@ -28,7 +29,8 @@ public class TestJUnitExercise {
      */
     
     @AfterClass
-    public static void wrapUp() {
+    public static void wrapUp()
+    {
         System.out.println("End of Test in @AfterClass");
 
     }
@@ -39,7 +41,8 @@ public class TestJUnitExercise {
      */
     
     @Before
-    public void setUp(){
+    public void setUp()
+    {
         //counter for time.
         startTime =  System.nanoTime();
         StringBuilder startTimeString = new StringBuilder();
@@ -54,7 +57,8 @@ public class TestJUnitExercise {
      */
     
     @After
-    public void tearDown(){
+    public void tearDown()
+    {
         endTime = System.nanoTime();
         duration = (endTime - startTime);
         
@@ -71,20 +75,22 @@ public class TestJUnitExercise {
      */
 
     @Test
-    public void testGetWinnerOfTournament(){
-        assertEquals(jUnitExercise.getWinnerOfTournament("nfl").toLowerCase(), "patriots");
+    public void testGetWinnerOfTournament()
+    {
+        assertEquals(informationRetriever.getWinnerOfTournament("nfl").toLowerCase(), "patriots");
         System.out.println("Test for get winner of tournament.");
     }
 
     /**
-     * Tests that the method getWinnerOfTournament from the JUnitExercise class should throw a nullPointerException if it finds no winner for a tournament *
-     * Thus if a tournament mlb is introduced a NullPointerException is expected.*
+     * Tests that the method getWinnerOfTournament from the JUnitExercise class should throw an IllegalArgumentException if it finds no winner for a tournament *
+     * Thus if a tournament mlb is introduced a IllegalArgumentException is expected.*
      */
 
-    @Test(expected = NullPointerException.class)
-    public void testGetWinnerOfTournamentExpectNull(){
-        System.out.print("Test for null get winner of tournament.");
-        jUnitExercise.getWinnerOfTournament("mlb");
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetWinnerOfTournamentExpectIllegalArgument()
+    {
+        System.out.print("Test for illegal argument in method getWinnerOfTournament.");
+        informationRetriever.getWinnerOfTournament("mlb");
     }
 
     /**
@@ -94,9 +100,10 @@ public class TestJUnitExercise {
      */
     
     @Test
-    public void testGetWinnerBySportForFootball(){
+    public void testGetWinnerBySportForFootball()
+    {
         String[] footballWinners = {"pros fl", "patriots"};
-        assertArrayEquals(jUnitExercise.getWinnersBySport("football"), footballWinners);
+        assertArrayEquals(informationRetriever.getWinnersBySport("football"), footballWinners);
         System.out.println("Test for get winner by sport for football.");
     }
 
@@ -107,9 +114,10 @@ public class TestJUnitExercise {
      */
 
     @Test
-    public void testGetWinnerBySportForSoccer(){
+    public void testGetWinnerBySportForSoccer()
+    {
         String[] soccerWinners = {"colombia", "germany"};
-        assertArrayEquals(jUnitExercise.getWinnersBySport("soccer"), soccerWinners);
+        assertArrayEquals(informationRetriever.getWinnersBySport("soccer"), soccerWinners);
         System.out.println("Test for get winner by sport for soccer.");
     }
 
@@ -120,9 +128,10 @@ public class TestJUnitExercise {
      */
 
     @Test
-    public void testGetWinnerBySportForBasketball(){
+    public void testGetWinnerBySportForBasketball()
+    {
         String[] basketballWinners = {"west", "heats"};
-        assertArrayEquals(jUnitExercise.getWinnersBySport("basketball"), basketballWinners);
+        assertArrayEquals(informationRetriever.getWinnersBySport("basketball"), basketballWinners);
         System.out.println("Test for get winner by sport for basketball.");
 
     }
@@ -133,10 +142,11 @@ public class TestJUnitExercise {
      */
     
     @Test
-    public void testGetWinnersOfSystem(){
+    public void testGetWinnersOfSystem()
+    {
         String[][] winnerOfSystem = {{"pros fl", "patriots"}, {"colombia", "germany"}, {"west", "heats"}};
         
-        assertArrayEquals(jUnitExercise.getWinnersOfSystem(), winnerOfSystem);
+        assertArrayEquals(informationRetriever.getWinnersOfSystem(), winnerOfSystem);
 
         System.out.println("Test for get winners of system method.");
     }
@@ -147,12 +157,13 @@ public class TestJUnitExercise {
      */
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetWinnersOfSystemExpectIndexOutOfBound(){
+    public void testGetWinnersOfSystemExpectIndexOutOfBound()
+    {
         System.out.println("Test for IndexOutOfBoundException get winners of system method.");
         
         String[][] winners;
         
-        winners = jUnitExercise.getWinnersOfSystem();
+        winners = informationRetriever.getWinnersOfSystem();
         
         String error = winners[0][3];
     }
@@ -163,9 +174,10 @@ public class TestJUnitExercise {
      */
 
     @Test
-    public void testGetArrayOfSports(){
+    public void testGetArrayOfSports()
+    {
         String[] currentRegisteredSports = {"soccer", "basketball", "football"};
-        assertArrayEquals(jUnitExercise.getArrayOfSports(), currentRegisteredSports);
+        assertArrayEquals(informationRetriever.getArrayOfSports(), currentRegisteredSports);
 
         System.out.println("Test for get array of registered sports.");
     }
@@ -177,8 +189,9 @@ public class TestJUnitExercise {
      */
     
     @Test
-    public void testCheckForRegisteredTeamsInFinalsForTournament(){
-        assertTrue(jUnitExercise.checkForRegisteredTeamsInFinalsForTournament("nfl"));
+    public void testCheckForRegisteredTeamsInFinalsForTournament()
+    {
+        assertTrue(informationRetriever.checkForRegisteredTeamsInFinalsForTournament("nfl"));
         
         System.out.println("Test to check if teams are registered for final match ");
     }

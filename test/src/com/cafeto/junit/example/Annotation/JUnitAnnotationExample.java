@@ -16,42 +16,49 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class JUnitAnnotationExample {
+public class JUnitAnnotationExample 
+{
 
     private ArrayList<String> list;
 
     @BeforeClass
-    public static void oneTimeSetUp() {
+    public static void oneTimeSetUp() 
+    {
         //Initialization code goes here
         System.out.println("@BeforeClass");
     }
 
     @AfterClass
-    public static void oneTimeTearDown() {
+    public static void oneTimeTearDown() 
+    {
         //Release your resources here
         System.out.println("@AfterClass");
     }
 
     @Before
-    public void setUp() {
+    public void setUp()
+    {
         list = new ArrayList<String>();
         System.out.println("@Before - setup()");
     }
 
     @After
-    public void tearDown() {
+    public void tearDown()
+    {
         list.clear();
         System.out.println("@After - teardown()");
     }
 
     @Test
-    public void testEmptyCollection() {
+    public void testEmptyCollection() 
+    {
         assertTrue(list.isEmpty());
         System.out.println("@Test Method 1");
     }
 
     @Test
-    public void testOneItemCollection() {
+    public void testOneItemCollection() 
+    {
         list.add("String1");
         assertEquals("String1", list.get(0));
         System.out.println("@Test Method 2");

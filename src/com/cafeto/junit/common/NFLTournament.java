@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class NFLTournament extends AbstractTournament {
 
-    NFLTournament() {
+    NFLTournament() 
+    {
         sport = "football";
         name = "National Football League";
         quantityOfStaff = 800;

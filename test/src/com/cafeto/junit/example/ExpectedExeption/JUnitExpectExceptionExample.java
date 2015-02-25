@@ -11,13 +11,15 @@ import static org.junit.Assert.assertArrayEquals;
  * You can find this example at http://www.asjava.com/junit/junit-3-vs-junit-4-comparison/ *
  */
 
-public class JUnitExpectExceptionExample {
+public class JUnitExpectExceptionExample 
+{
 
     /**
-     * Since JUnit 4 al expectedException test cases use the following notation* 
+     * Since JUnit 4 al expectedException test cases use the following notation.*
      */
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetElement() {
+    public void testGetElement()
+    {
         (new ArrayList()).get(0);
     }
 }

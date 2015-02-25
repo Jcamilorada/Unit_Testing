@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class AFLTournament extends AbstractTournament {
 
-    AFLTournament() {
+    AFLTournament()
+    {
         sport = "football";
         name = "Amateur Football League";
         quantityOfStaff = 150;

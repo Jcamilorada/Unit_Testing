@@ -109,8 +109,8 @@ Now to answer these lets look at what is expected of each.
    that host a specific sport. We know before hand that the tournaments currently registered are {"afl", "asbl", "fifafwc", "fifawc", "nba", "nfl"} and we know that
    their are 3 available sports soccer, basketball and football. For basketball we expect to receive find an array with nba and asbl tournaments.
    
-To revise te implementation check out the com.cafeto.junit.example.assertion package under src directory to find the AssertionExample.java file, and for JUnit tests
-check out the junit.example.assertion package under test followed by src directories and execute TestAssertionExample.
+To revise te implementation check out the com.cafeto.junit.example.assertion package under src directory to find the SimpleInformationRetriever.java file, and for JUnit tests
+check out the junit.example.assertion package under test followed by src directories and execute TestSimpleInformationRetriever.
 
 ###ExpectedException
 
@@ -147,8 +147,9 @@ Finally the analyst want to revise the process of validation and understand when
 Also they want to know when a specific test starts and ends, thus they want to know the time it starts, the time it ends 
 and calculate the duration the test takes.
 
-The exercise will consist of two aspects. First, the implementation of a class to responds to th requirements of the analyst group.
-Second, the implementation of unit tests to validate the implemented methods.
+The exercise will consist of two aspects. First, the implementation of a class to responds to the requirements of the analyst group 
+which should be called 'InformationRetriever.java'. Second, the implementation of unit tests to validate the implemented 
+methods which should be called 'TestInformationRetriever.java'.
 
 [apiAssert]: http://junit.sourceforge.net/javadoc/org/junit/Assert.html
 [detailedAssert]: http://www.vogella.com/tutorials/JUnit/article.html#usingjunit_asserts

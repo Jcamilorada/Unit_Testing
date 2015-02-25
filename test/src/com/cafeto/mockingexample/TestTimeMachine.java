@@ -1,4 +1,4 @@
-package com.cafeto.junit.example;
+package com.cafeto.mockingexample;
 
 import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
@@ -14,68 +14,76 @@ import static org.mockito.Mockito.*;
 /**
  * Created by jolaya on 2/25/2015.
  */
-public class TestMockingVoidExample {
-    MockingVoidExample mockMockingVoidExample = mock(MockingVoidExample.class);
+public class TestTimeMachine
+{
+    TimeMachine mockTimeMachine = mock(TimeMachine.class);
 
     /**
-     * When do throw is called over the void method randomMethod a NullPointerException is created thus when the method *
+     * When do throw is called over the void method openMachine a NullPointerException is created thus when the method *
      * is called an expected NullPointerException is caught.* 
      *  * 
      */
     
     @Test(expected = NullPointerException.class)
-    public void testDoThrow(){
-        doThrow(new NullPointerException()).when(mockMockingVoidExample).randomMethod();
-        mockMockingVoidExample.randomMethod();
+    public void testDoThrow()
+    {
+        doThrow(new NullPointerException()).when(mockTimeMachine).openMachine();
+        mockTimeMachine.openMachine();
     }
 
     /**
-     * When the void method sendMessage is called the real execution of the method is done, in this case a Message is sent *
+     * When the void method sendMessageThroughTimeMachine is called the real execution of the method is done, in this case a Message is sent *
      * to the system. Thus the test is true.* 
      */
     
     @Test
-    public void testDoCallRealMethod(){
-        doCallRealMethod().when(mockMockingVoidExample).sendMessage();
-        mockMockingVoidExample.sendMessage();
+    public void testDoCallRealMethod()
+    {
+        doCallRealMethod().when(mockTimeMachine).sendMessageThroughTimeMachine();
+        mockTimeMachine.sendMessageThroughTimeMachine();
         assertTrue(true);
     }
 
     /**
-     * When the void method randomMethod is called a NullPointerException is called but before that we want to call it and do nothing *
-     * so doNothing is called on the first call of the method and the on the second call it throws a NullPointerException.  * 
+     * When the void method openMachine is called a NullPointerException is called but before that we want to call it and do nothing *
+     * so doNothing is called on the first call of the method and the on the second call it throws a NullPointerException.*
      */
     
     @Test(expected = NullPointerException.class)
-    public void testDoNothing(){
-        doNothing().doThrow(new NullPointerException()).when(mockMockingVoidExample).randomMethod();
-        System.out.println("First call to randomMethod");
-        mockMockingVoidExample.randomMethod();
+    public void testDoNothing()
+    {
+        doNothing().doThrow(new NullPointerException()).when(mockTimeMachine).openMachine();
+        System.out.println("First call to openMachine");
+        mockTimeMachine.openMachine();
         
-        System.out.println("Second call to randomMethod returns NullPointerException");
-        mockMockingVoidExample.randomMethod();
+        System.out.println("Second call to openMachine returns NullPointerException");
+        mockTimeMachine.openMachine();
         
     }
 
     /**
      * The test consist in proving the functionality of doAnswer. The test provides to set the state internally as "not *
-     * ready". * 
+     * ready".*
      */
     
     @Test
-    public void testDoAnswer(){
+    public void testDoAnswer()
+    {
         int something;
         
-        doNothing().doAnswer(new Answer() {
+        doNothing().doAnswer(new Answer() 
+        {
             @Override
-            public Object answer(InvocationOnMock invocation) {
+            public Object answer(InvocationOnMock invocation)
+            {
                 Object[] args = invocation.getArguments();
                 return (String) args[0];
             }
-        }).when(mockMockingVoidExample).setState(anyString());
+        }
+        ).when(mockTimeMachine).setStateOfTimeMachine(anyString());
         
-        mockMockingVoidExample.setState("Ready");
-        mockMockingVoidExample.setState("Not Ready!");
+        mockTimeMachine.setStateOfTimeMachine("Ready");
+        mockTimeMachine.setStateOfTimeMachine("Not Ready!");
         
         assertTrue(true);
     }
@@ -87,7 +95,8 @@ public class TestMockingVoidExample {
      */
     
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testDoReturnErrorCase(){
+    public void testDoReturnErrorCase()
+    {
         List list = new LinkedList();
         List spy = spy(list);
 
@@ -103,7 +112,8 @@ public class TestMockingVoidExample {
      */
     
     @Test
-    public void testDoReturn(){
+    public void testDoReturn()
+    {
         List list = new LinkedList();
         List spy = spy(list);
         

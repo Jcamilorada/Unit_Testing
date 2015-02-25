@@ -5,7 +5,8 @@ import java.util.List;
 /**
  * Created by jolaya on 2/23/2015.
  */
-public abstract class AbstractTournament implements ITournament {
+public abstract class AbstractTournament implements ITournament
+{
 
     protected String sport, name;
     protected int quantityOfStaff, year;
@@ -13,37 +14,44 @@ public abstract class AbstractTournament implements ITournament {
     protected List<Integer> scoreBoard;
     
     @Override
-    public String getSport() {
+    public String getSport()
+    {
         return sport;
     }
 
     @Override
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
     @Override
-    public int getQuantityOfStaff() {
+    public int getQuantityOfStaff()
+    {
         return quantityOfStaff;
     }
 
     @Override
-    public List<String> getTeams() {
+    public List<String> getTeams()
+    {
         return teams;
     }
 
     @Override
-    public List<String> getFinalMatch() {
+    public List<String> getFinalMatch()
+    {
         return finalMatch;
     }
 
     @Override
-    public List<Integer> getScoreBoard() {
+    public List<Integer> getScoreBoard()
+    {
         return scoreBoard;
     }
 
     @Override
-    public int getYear() {
+    public int getYear()
+    {
         return year;
     }
 }
