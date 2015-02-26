@@ -1,8 +1,7 @@
 package com.cafeto.junit.example.ExpectedExeption;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
+import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 

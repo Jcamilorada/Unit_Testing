@@ -1,7 +1,6 @@
 package com.cafeto.junit.example.Assertion;
 
 import static org.junit.Assert.*;
-
 import com.cafeto.junit.common.ITournament;
 import com.cafeto.junit.common.TournamentFactory;
 import org.junit.Test;

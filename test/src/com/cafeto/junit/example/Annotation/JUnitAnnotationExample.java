@@ -1,20 +1,19 @@
 package com.cafeto.junit.example.Annotation;
 
-/**
- * Created by jolaya on 2/19/2015.
- * The following example was taken from http://www.javabeat.net/junit-4-annotation-example/#sthash.7VA6deth.dpuf *
- * Check the link above to verify your answers. *
- */
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+/**
+ * Created by jolaya on 2/19/2015.
+ * The following example was taken from http://www.javabeat.net/junit-4-annotation-example/#sthash.7VA6deth.dpuf *
+ * Check the link above to verify your answers. *
+ */
 
 public class JUnitAnnotationExample 
 {

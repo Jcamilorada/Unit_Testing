@@ -1,7 +1,6 @@
 package com.cafeto.junit.exercise;
 
 import static org.junit.Assert.*;
-
 import org.junit.*;
 
 /**

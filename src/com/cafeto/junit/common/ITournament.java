@@ -16,47 +16,47 @@ public interface ITournament
      * * 
      * @return string sport
      */
-    public String getSport();
+    String getSport();
 
     /**
      * Getter for name of tournament. Data type is a String. *
-     * * 
+     * *
      * @return stringName
      */
-    public String getName();
+    String getName();
 
     /**
      * Getter for the amount of staff that was present in the tournament. Data type is an integer. *
      * * 
      * @return integer quantity of staff
      */
-    public int getQuantityOfStaff();
+    int getQuantityOfStaff();
 
     /**
      * Getter for List of Teams. Each tournament has the names of the teams that participated in the tournament. Data type is a List of Strings. *
      * * 
      * @return List with strings that contains the teams per tournament.
      */
-    public List<String> getTeams();
+    List<String> getTeams();
 
     /**
      * Getter for Final Match at the end of the tournament. Data type is a List of String. Each String is the name of the team. *
      * * 
      * @return List of string containing 2 matches.
      */
-    public List<String> getFinalMatch();
+    List<String> getFinalMatch();
 
     /**
      * Getter for Scoreboard at the end of the tournament. Data type is a List of String. Each String is the name of the team. *
      * * 
      * @return List of integers with the two last scored of each team that participated.
      */
-    public List<Integer> getScoreBoard();
+    List<Integer> getScoreBoard();
 
     /**
      * Getter for the year of realization of the event. Data type is integer. *
      * *
      * @return integer year
      */
-    public int getYear();
+    int getYear();
 }
