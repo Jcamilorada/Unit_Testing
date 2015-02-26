@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class ASBLTournament extends AbstractTournament {
 
-    ASBLTournament() {
+    ASBLTournament()
+    {
         sport = "basketball";
         name = "All Star Basketball League";
         quantityOfStaff = 756;

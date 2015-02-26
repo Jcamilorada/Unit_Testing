@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class FIFAWCTournament extends AbstractTournament {
     
-    FIFAWCTournament() {
+    FIFAWCTournament()
+    {
         sport = "soccer";
         name = "FIFA World Cup";
         quantityOfStaff = 1200;
